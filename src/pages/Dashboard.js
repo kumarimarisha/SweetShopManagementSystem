@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../config/firebase';
 import { setSweets, setSearchQuery, setSelectedCategory } from '../redux/slices/sweetsSlice';
 import {
   Container,
@@ -22,20 +20,23 @@ function Dashboard() {
   const [categories, setCategories] = useState(['all']);
 
   useEffect(() => {
-    // Fetch sweets from Firestore
-    const unsubscribe = onSnapshot(collection(db, 'sweets'), (snapshot) => {
-      const sweets = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      dispatch(setSweets(sweets));
+    // Fetch sweets from backend API
+    const fetchSweets = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/sweets');
+        if (!response.ok) throw new Error('Failed to fetch sweets');
+        const sweets = await response.json();
+        dispatch(setSweets(sweets));
 
-      // Extract unique categories
-      const uniqueCategories = ['all', ...new Set(sweets.map(sweet => sweet.category))];
-      setCategories(uniqueCategories);
-    });
+        // Extract unique categories
+        const uniqueCategories = ['all', ...new Set(sweets.map(sweet => sweet.category))];
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error('Error fetching sweets:', error);
+      }
+    };
 
-    return unsubscribe;
+    fetchSweets();
   }, [dispatch]);
 
   return (

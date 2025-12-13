@@ -13,6 +13,10 @@ export const registerUser = async (email, password, name) => {
     // Create user in Firebase Auth
     const result = await createUserWithEmailAndPassword(auth, email, password);
     const user = result.user;
+    
+    // Get and store ID token for API calls
+    const token = await user.getIdToken();
+    localStorage.setItem('firebaseToken', token);
 
     // Store user data in Firestore
     try {
@@ -41,6 +45,9 @@ export const registerUser = async (email, password, name) => {
 export const loginUser = async (email, password) => {
   try {
     const result = await signInWithEmailAndPassword(auth, email, password);
+    // Get and store ID token for API calls
+    const token = await result.user.getIdToken();
+    localStorage.setItem('firebaseToken', token);
     return result.user;
   } catch (error) {
     throw error;

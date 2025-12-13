@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../config/firebase';
 import { setSweets, deleteSweet } from '../redux/slices/sweetsSlice';
 import {
   Container,
@@ -30,22 +28,30 @@ function AdminPanel() {
   const [selectedSweet, setSelectedSweet] = useState(null);
 
   useEffect(() => {
-    // Fetch sweets from Firestore
-    const unsubscribe = onSnapshot(collection(db, 'sweets'), (snapshot) => {
-      const sweets = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      dispatch(setSweets(sweets));
-    });
+    // Fetch sweets from backend API
+    const fetchSweets = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/sweets');
+        if (!response.ok) throw new Error('Failed to fetch sweets');
+        const sweets = await response.json();
+        dispatch(setSweets(sweets));
+      } catch (error) {
+        console.error('Error fetching sweets:', error);
+      }
+    };
 
-    return unsubscribe;
+    fetchSweets();
   }, [dispatch]);
 
   const handleDelete = async (sweetId) => {
     if (window.confirm('Are you sure you want to delete this sweet?')) {
       try {
-        await deleteDoc(doc(db, 'sweets', sweetId));
+        const token = localStorage.getItem('firebaseToken');
+        const response = await fetch(`http://localhost:5000/api/sweets/${sweetId}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` },
+        });
+        if (!response.ok) throw new Error('Failed to delete');
         dispatch(deleteSweet(sweetId));
         toast.success('Sweet deleted successfully!');
       } catch (error) {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { doc, updateDoc } from 'firebase/firestore';
-import { db } from '../config/firebase';
 import { updateSweet } from '../redux/slices/sweetsSlice';
 import {
   Box,
@@ -38,16 +36,23 @@ function EditSweetForm({ sweet, onClose }) {
     setError('');
 
     try {
-      const sweetRef = doc(db, 'sweets', sweet.id);
-      await updateDoc(sweetRef, {
-        name: data.name,
-        description: data.description,
-        category: data.category,
-        price: parseFloat(data.price),
-        quantity: parseInt(data.quantity),
-        image: data.image || '',
-        updatedAt: new Date(),
+      const token = localStorage.getItem('firebaseToken');
+      const response = await fetch(`http://localhost:5000/api/sweets/${sweet.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          name: data.name,
+          description: data.description,
+          category: data.category,
+          price: parseFloat(data.price),
+          quantity: parseInt(data.quantity),
+          image: data.image || '',
+        }),
       });
+      if (!response.ok) throw new Error('Failed to update sweet');
 
       dispatch(updateSweet({
         id: sweet.id,
