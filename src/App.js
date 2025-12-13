@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { setUser, setLoading, setIsAdmin } from './redux/slices/authSlice';
+import { setCart } from './redux/slices/cartSlice';
 import { onAuthChange, getUserRole } from './services/authService';
+import { loadCartForUser, saveCartForUser } from './services/cartService';
 import store from './redux/store';
 import theme from './theme';
 
@@ -21,6 +23,7 @@ import './App.css';
 function AppContent() {
   const dispatch = useDispatch();
   const { user, loading } = useSelector(state => state.auth);
+  const cart = useSelector(state => state.cart);
 
   useEffect(() => {
     // Listen to auth state changes
@@ -36,6 +39,13 @@ function AppContent() {
           displayName: authUser.displayName,
         }));
         dispatch(setIsAdmin(isAdmin));
+        // Load user's saved cart from Firestore
+        try {
+          const savedCart = await loadCartForUser(authUser.uid);
+          dispatch(setCart(savedCart));
+        } catch (err) {
+          console.error('Failed to load saved cart:', err);
+        }
       } else {
         dispatch(setUser(null));
       }
@@ -44,6 +54,14 @@ function AppContent() {
 
     return unsubscribe;
   }, [dispatch]);
+
+  // Persist cart to Firestore when cart changes and user is logged in
+  useEffect(() => {
+    if (user && user.uid) {
+      // debounce/save directly
+      saveCartForUser(user.uid, cart).catch(err => console.error('Error saving cart:', err));
+    }
+  }, [cart.items, cart.totalPrice, user]);
 
   if (loading) {
     return (
