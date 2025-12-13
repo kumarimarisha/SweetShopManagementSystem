@@ -11,11 +11,15 @@ function Navbar() {
   const navigate = useNavigate();
   const { user, isAdmin } = useSelector(state => state.auth);
   const { items } = useSelector(state => state.cart);
+  
+  // Check localStorage as fallback for admin status
+  const isAdminLocal = isAdmin || localStorage.getItem('isAdmin') === 'true';
 
   const handleLogout = async () => {
     try {
       await logoutUser();
       dispatch(logout());
+      localStorage.removeItem('isAdmin');
       toast.success('Logged out successfully!');
       navigate('/login');
     } catch (error) {
@@ -35,7 +39,7 @@ function Navbar() {
               <Button color="inherit" onClick={() => navigate('/dashboard')}>
                 Shop
               </Button>
-              {isAdmin && (
+              {isAdminLocal && (
                 <Button color="inherit" onClick={() => navigate('/admin')}>
                   Admin Panel
                 </Button>

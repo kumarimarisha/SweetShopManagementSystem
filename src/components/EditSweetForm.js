@@ -37,6 +37,13 @@ function EditSweetForm({ sweet, onClose }) {
 
     try {
       const token = localStorage.getItem('firebaseToken');
+      
+      if (!token) {
+        throw new Error('Authentication token not found. Please logout and login again.');
+      }
+
+      console.log('Updating sweet with token:', token.substring(0, 20) + '...');
+      
       const response = await fetch(`http://localhost:5000/api/sweets/${sweet.id}`, {
         method: 'PUT',
         headers: {
@@ -52,7 +59,12 @@ function EditSweetForm({ sweet, onClose }) {
           image: data.image || '',
         }),
       });
-      if (!response.ok) throw new Error('Failed to update sweet');
+
+      const responseData = await response.json();
+      if (!response.ok) {
+        console.error('Update response error:', responseData);
+        throw new Error(responseData.message || 'Failed to update sweet');
+      }
 
       dispatch(updateSweet({
         id: sweet.id,
@@ -67,6 +79,7 @@ function EditSweetForm({ sweet, onClose }) {
       toast.success('Sweet updated successfully!');
       onClose();
     } catch (err) {
+      console.error('Edit error:', err);
       setError(err.message);
       toast.error(err.message);
     } finally {

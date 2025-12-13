@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSweets, setSearchQuery, setSelectedCategory } from '../redux/slices/sweetsSlice';
 import {
   Container,
-  Grid,
   TextField,
   Box,
   FormControl,
@@ -12,7 +11,7 @@ import {
   MenuItem,
   Typography,
 } from '@mui/material';
-import SweetCard from '../components/SweetCard';
+import SweetGallery from '../components/SweetGallery';
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -71,15 +70,9 @@ function Dashboard() {
         </FormControl>
       </Box>
 
-      {/* Sweets Grid */}
+      {/* Sweets Gallery */}
       {filteredItems.length > 0 ? (
-        <Grid container spacing={3}>
-          {filteredItems.map(sweet => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={sweet.id}>
-              <SweetCard sweet={sweet} />
-            </Grid>
-          ))}
-        </Grid>
+        <SweetGallery sweets={filteredItems} />
       ) : (
         <Box sx={{ textAlign: 'center', py: 4 }}>
           <Typography variant="h6" color="textSecondary">

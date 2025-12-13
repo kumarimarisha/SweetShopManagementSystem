@@ -29,8 +29,10 @@ function AppContent() {
     // Listen to auth state changes
     const unsubscribe = onAuthChange(async (authUser) => {
       if (authUser) {
-        // Get user role
-        const role = await getUserRole(authUser.uid);
+        // Get user role with timeout
+        const rolePromise = getUserRole(authUser.uid);
+        const timeoutPromise = new Promise(resolve => setTimeout(() => resolve('user'), 3000));
+        const role = await Promise.race([rolePromise, timeoutPromise]);
         const isAdmin = role === 'admin';
 
         dispatch(setUser({
@@ -39,9 +41,12 @@ function AppContent() {
           displayName: authUser.displayName,
         }));
         dispatch(setIsAdmin(isAdmin));
-        // Load user's saved cart from Firestore
+        
+        // Load user's saved cart from Firestore with timeout
         try {
-          const savedCart = await loadCartForUser(authUser.uid);
+          const cartPromise = loadCartForUser(authUser.uid);
+          const cartTimeoutPromise = new Promise(resolve => setTimeout(() => resolve([]), 3000));
+          const savedCart = await Promise.race([cartPromise, cartTimeoutPromise]);
           dispatch(setCart(savedCart));
         } catch (err) {
           console.error('Failed to load saved cart:', err);
@@ -52,7 +57,15 @@ function AppContent() {
       dispatch(setLoading(false));
     });
 
-    return unsubscribe;
+    // Fallback: Force stop loading after 5 seconds
+    const timeout = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+      unsubscribe();
+    };
   }, [dispatch]);
 
   // Persist cart to Firestore when cart changes and user is logged in
