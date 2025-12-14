@@ -75,21 +75,29 @@ Navigate to the frontend directory
 npm test
 
 # # SCREENSHOTS
-### Dashboard
-![Dashboard preview](./images/Dashboard.png)
-### Admin Panel
-![Admin Panel preview](./images/AdminPanel.png)
-### Login Form
-![Login Form preview](./images/LoginForm.png)
-### Register Form
-![Register Form preview](./images/SignUpForm.png)
-### Cart
-![Cart preview](./images/Cart.png)
-### TestCoverageReport
-![TestCoverageReport preview](./images/Test.png)
+## Screenshots
 
-### MY AI USAGE
-#Tools Used
+### Dashboard
+![Dashboard](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/Dashboard.png)
+
+### Admin Panel
+![Admin Panel](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/AdminPanel.png)
+
+### Login Form
+![Login Form](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/LoginForm.png)
+
+### Register Form
+![Register Form](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/SignUpForm.png)
+
+### Cart
+![Cart](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/Cart.png)
+
+### Test Coverage Report
+![Test Coverage](https://raw.githubusercontent.com/kumarimarisha/SweetShopManagementSystem/main/images/Test.png)
+
+## MY AI USAGE
+
+### Tools Used
 - GitHub Copilot
 
 #How I Used AI
