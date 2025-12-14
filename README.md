@@ -75,10 +75,12 @@ Navigate to the frontend directory
 npm test
 
 # # SCREENSHOTS
-## Screenshots
+
 
 ### Dashboard
-![Dashboard](C:\Users\maris\OneDrive\Desktop\sweetshop\images\Dashboard.png)
+<p align="center">
+  <img src="images/dashboard.png" width="600"/>
+</p>
 
 ### Admin Panel
 ![Admin Panel](./images/AdminPanel.png)
