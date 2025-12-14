@@ -3,7 +3,7 @@
 A full-stack web application for managing a sweet shop's inventory, sales, and user management.
 
 ---
-
+## Deployed Link:- https://sweetshop-frontend-tsnz.onrender.com
 ## Features
 
 - User authentication (Login/Register)
