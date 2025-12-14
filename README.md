@@ -1,123 +1,102 @@
-# Sweet Shop Management System
+project:
+  name: Sweet Shop Management System
+  description: >
+    A full-stack web application for managing a sweet shop's inventory,
+    sales, and user management.
 
-A full-stack web application for managing a sweet shop's inventory, sales, and user management.
+features:
+  - User authentication (Login/Register)
+  - Role-based access control (Admin/User)
+  - Product management (Add/Edit/Delete sweets)
+  - Inventory management
+  - Shopping cart functionality
+  - Responsive design
 
-## Features
+tech_stack:
+  frontend:
+    - React
+    - Redux
+    - Material-UI
+  backend:
+    - Node.js
+    - Express
+    - Firebase Firestore
+    - Firebase Authentication
+  testing:
+    - Jest
+    - Supertest
+  version_control:
+    - Git
+    - GitHub
 
-- User authentication (Login/Register)
-- Role-based access control (Admin/User)
-- Product management (Add/Edit/Delete sweets)
-- Inventory management
-- Shopping cart functionality
-- Responsive design
+setup_instructions:
+  prerequisites:
+    - Node.js v14+
+    - npm or yarn
+    - Firebase project with Firestore and Authentication enabled
 
-## Tech Stack
+backend_setup:
+  install_dependencies:
+    command: npm install
+  environment_variables:
+    FIREBASE_PROJECT_ID: your-project-id
+    FIREBASE_CLIENT_EMAIL: your-client-email
+    FIREBASE_PRIVATE_KEY: your-private-key
+  start_server:
+    command: npm start
 
-- **Frontend**: React, Redux, Material-UI
-- **Backend**: Node.js, Express, Firebase (Firestore, Authentication)
-- **Testing**: Jest, Supertest
-- **Version Control**: Git, GitHub
+frontend_setup:
+  navigate_to_directory:
+    command: cd ../src
+  install_dependencies:
+    command: npm install
+  environment_variables:
+    REACT_APP_FIREBASE_API_KEY: your-api-key
+    REACT_APP_FIREBASE_AUTH_DOMAIN: your-project.firebaseapp.com
+    REACT_APP_FIREBASE_PROJECT_ID: your-project-id
+    REACT_APP_FIREBASE_STORAGE_BUCKET: your-bucket.appspot.com
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID: your-sender-id
+    REACT_APP_FIREBASE_APP_ID: your-app-id
+  start_server:
+    command: npm start
 
-## Setup Instructions
+tests:
+  backend:
+    command: npm test
+  frontend:
+    command: npm test
 
-### Prerequisites
+screenshots:
+  dashboard: images/Dashboard.png
+  admin_panel: images/AdminPanel.png
+  login_form: images/LoginForm.png
+  register_form: images/SignUpForm.png
+  cart: images/Cart.png
+  test_coverage_report: images/Test.png
 
-- Node.js (v14+)
-- npm or yarn
-- Firebase project with Firestore and Authentication enabled
+ai_usage:
+  tools_used:
+    - GitHub Copilot
+  how_ai_was_used:
+    debugging_assistance:
+      - Identified and fixed errors in the codebase
+      - Suggested error-handling patterns and best practices
+    test_development:
+      - Generated unit tests for backend controllers
+      - Created test cases for multiple scenarios including edge cases
+    api_development:
+      - Suggested RESTful endpoint structures
+      - Assisted with authentication and authorization middleware
+    code_optimization:
+      - Suggested efficient algorithms and coding patterns
+      - Recommended better code organization and structure
+  impact_on_workflow:
+    productivity: Reduced time spent on boilerplate code
+    learning: Helped understand new patterns and best practices
+    quality: Improved code quality through consistent patterns and error handling
+    problem_solving: Provided alternative approaches to complex problems
 
-### Backend Setup
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/kumarimarisha/SweetShopManagementSystem.git](https://github.com/kumarimarisha/SweetShopManagementSystem.git)
-   cd SweetShopManagementSystem/sweetshop-backend
-# Installation and Setup
-
-## Backend Setup
-
-### Install Dependencies
-```bash
-npm install
-
-### Set up Environment Variables
-Create a .env file in the backend directory and add your Firebase configuration:
-FIREBASE_PROJECT_ID=your-project-id
-FIREBASE_CLIENT_EMAIL=your-client-email
-FIREBASE_PRIVATE_KEY="your-private-key"
-
-### Start the Development Server
-npm start
-
-### FRONTEND SETUP
-Navigate to frontend directory
-cd ../src
-Install Dependencies
-npm install
-
-###Set up Firebase Configuration
-create .env file in the frontend directory and add your firebase configuration:
-REACT_APP_FIREBASE_API_KEY=your-api-key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
-REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your-bucket.appspot.com
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
-REACT_APP_FIREBASE_APP_ID=your-app-id
-
-start the development server
-npm start
-
-### **RUNNING TESTS**
-Navigate to the backend directory
-npm test
-FRONTEND TESTS
-Navigate to the frontend directory
-npm test
-
-# # **SCREENSHOTS**
-
-###** Dashboard**
-![Dashboard](images/Dashboard.png)
-
-**### Admin Panel**
-![Admin Panel](images/AdminPanel.png)
-
-**### Login Form**
-![Login Form](images/LoginForm.png)
-
-**### Register Form**
-![Register Form](images/SignUpForm.png)
-
-**### Cart**
-![Cart](images/Cart.png)
-
-**### Test Coverage Report**
-![Test Coverage](images/Test.png)
-
-
-## MY AI USAGE
-
-### Tools Used
-- GitHub Copilot
-
-#How I Used AI
-**Debugging Assistance:
-Used Copilot to help identify and fix errors in the codebase
-Got suggestions for error handling patterns and best practices
-**Test Development:
-Leveraged Copilot to generate unit tests for backend controllers
-Used it to create test cases for various scenarios including edge cases
-**API Development:
-Received suggestions for RESTful endpoint structures
-Got help with implementing middleware for authentication and authorization
-**Code Optimization:
-Used Copilot to suggest more efficient algorithms and patterns
-Got recommendations for code organization and structure
-
-###Impact on Workflow
-Productivity: Significantly reduced time spent on boilerplate code
-Learning: Helped understand new patterns and best practices
-Quality: Improved code quality through consistent patterns and error handling
-Problem-Solving: Provided alternative approaches to complex problems
-
+author:
+  name: Kumari Marisha
+  role: Frontend & Full-Stack Developer
 
