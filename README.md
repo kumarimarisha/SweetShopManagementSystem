@@ -78,22 +78,22 @@ npm test
 ## Screenshots
 
 ### Dashboard
-![Dashboard](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/Dashboard.png)
+![Dashboard](./images/Dashboard.png)
 
 ### Admin Panel
-![Admin Panel](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/AdminPanel.png)
+![Admin Panel](./images/AdminPanel.png)
 
 ### Login Form
-![Login Form](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/LoginForm.png)
+![Login Form](./images/LoginForm.png)
 
 ### Register Form
-![Register Form](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/SignUpForm.png)
+![Register Form](./images/SignUpForm.png)
 
 ### Cart
-![Cart](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/Cart.png)
+![Cart](./images/Cart.png)
 
 ### Test Coverage Report
-![Test Coverage](https://github.com/kumarimarisha/SweetShopManagementSystem/raw/main/images/Test.png)
+![Test Coverage](./images/Test.png)
 
 ## MY AI USAGE
 
