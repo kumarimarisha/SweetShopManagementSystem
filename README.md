@@ -78,7 +78,7 @@ npm test
 ## Screenshots
 
 ### Dashboard
-![Dashboard](./images/Dashboard.png)
+![Dashboard](C:\Users\maris\OneDrive\Desktop\sweetshop\images\Dashboard.png/images/Dashboard.png)
 
 ### Admin Panel
 ![Admin Panel](./images/AdminPanel.png)
