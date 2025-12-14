@@ -79,23 +79,24 @@ npm test
 
 ### Dashboard
 <p align="center">
-  <img src="/images/Dashboard.png" width="600"/>
+  <img src="images/Dashboard.png" width="600"/>
 </p>
 
 ### Admin Panel
-![Admin Panel](/images/AdminPanel.png)
+![Admin Panel](images/AdminPanel.png)
 
 ### Login Form
-![Login Form](/images/LoginForm.png)
+![Login Form](images/LoginForm.png)
 
 ### Register Form
-![Register Form](/images/SignUpForm.png)
+![Register Form](images/SignUpForm.png)
 
 ### Cart
-![Cart](/images/Cart.png)
+![Cart](images/Cart.png)
 
 ### Test Coverage Report
-![Test Coverage](/images/Test.png)
+![Test Coverage](images/Test.png)
+
 
 ## MY AI USAGE
 
