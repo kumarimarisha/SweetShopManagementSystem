@@ -1,5 +1,22 @@
 import { admin, db } from '../config/firebase.js';
 
+// GET - Get single sweet
+export const getSweet = async (req, res) => {
+  try {
+    const sweetRef = db.collection('sweets').doc(req.params.id);
+    const doc = await sweetRef.get();
+    
+    if (!doc.exists) {
+      return res.status(404).json({ error: 'Sweet not found' });
+    }
+    
+    return res.status(200).json({ id: doc.id, ...doc.data() });
+  } catch (error) {
+    console.error('Error getting sweet:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 // POST - Add new sweet (Admin only)
 export const addSweet = async (req, res) => {
   const { name, category, price, quantity, description, image } = req.body;

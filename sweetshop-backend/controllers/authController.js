@@ -1,39 +1,44 @@
 import { auth, db } from '../config/firebase.js';
 
 // Register
+// controllers/authController.js
 export const register = async (req, res) => {
-  const { email, password, name } = req.body;
-
-  if (!email || !password || !name) {
-    return res.status(400).json({ error: 'Email, password, and name are required' });
-  }
-
   try {
+    const { email, password, name } = req.body;
+
+    // Check if user already exists
+    const usersRef = db.collection('users');
+    const snapshot = await usersRef.where('email', '==', email).get();
+    
+    if (!snapshot.empty) {
+      return res.status(400).json({ error: 'Email already in use' });
+    }
+
+    // Create user in Firebase Auth
     const userRecord = await auth.createUser({
       email,
       password,
-      displayName: name,
+      displayName: name
     });
 
-    // Save user to Firestore
+    // Save user data to Firestore
     await db.collection('users').doc(userRecord.uid).set({
-      uid: userRecord.uid,
       email,
       name,
       role: 'user',
-      createdAt: new Date(),
+      createdAt: new Date()
     });
 
     res.status(201).json({
-      message: 'User registered successfully',
       uid: userRecord.uid,
       email: userRecord.email,
+      name: userRecord.displayName
     });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error('Error registering user:', error);
+    res.status(500).json({ error: 'Failed to register user' });
   }
 };
-
 // Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
