@@ -67,34 +67,31 @@ REACT_APP_FIREBASE_APP_ID=your-app-id
 start the development server
 npm start
 
-### RUNNING TESTS
+### **RUNNING TESTS**
 Navigate to the backend directory
 npm test
 FRONTEND TESTS
 Navigate to the frontend directory
 npm test
 
-# # SCREENSHOTS
+# # **SCREENSHOTS**
 
+###** Dashboard**
+![Dashboard](images/Dashboard.png)
 
-### Dashboard
-<p align="center">
-  <img src="images/Dashboard.png" width="600"/>
-</p>
-
-### Admin Panel
+**### Admin Panel**
 ![Admin Panel](images/AdminPanel.png)
 
-### Login Form
+**### Login Form**
 ![Login Form](images/LoginForm.png)
 
-### Register Form
+**### Register Form**
 ![Register Form](images/SignUpForm.png)
 
-### Cart
+**### Cart**
 ![Cart](images/Cart.png)
 
-### Test Coverage Report
+**### Test Coverage Report**
 ![Test Coverage](images/Test.png)
 
 
