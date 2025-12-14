@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Sweet Shop Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application for managing a sweet shop's inventory, sales, and user management.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User authentication (Login/Register)
+- Role-based access control (Admin/User)
+- Product management (Add/Edit/Delete sweets)
+- Inventory management
+- Shopping cart functionality
+- Responsive design
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, Redux, Material-UI
+- **Backend**: Node.js, Express, Firebase (Firestore, Authentication)
+- **Testing**: Jest, Supertest
+- **Version Control**: Git, GitHub
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14+)
+- npm or yarn
+- Firebase project with Firestore and Authentication enabled
 
-### `npm run build`
+### Backend Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/kumarimarisha/SweetShopManagementSystem.git](https://github.com/kumarimarisha/SweetShopManagementSystem.git)
+   cd SweetShopManagementSystem/sweetshop-backend
+# Installation and Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Install Dependencies
+```bash
+npm install  
+Set up Environment Variables
+Create a .env file in the backend directory and add your Firebase configuration:
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=your-client-email
+FIREBASE_PRIVATE_KEY="your-private-key"
+Start the Development Server
+npm start
+FRONTEND SETUP
+Navigate to frontend directory
+cd ../src
+Install Dependencies
+npm install
+Set up Firebase Configuration
+create .env file in the frontend directory and add your firebase configuration:
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-bucket.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
 
-### `npm run eject`
+start the development server
+npm start
+RUNNING TESTS
+Navigate to the backend directory
+npm test
+FRONTEND TESTS
+Navigate to the frontend directory
+npm test
+# # SCREENSHOTS
+### Dashboard
+![Dashboard preview](./images/Dashboard.png)
+### Admin Panel
+![Admin Panel preview](./images/AdminPanel.png)
+### Login Form
+![Login Form preview](./images/LoginForm.png)
+### Register Form
+![Register Form preview](./images/SignUpForm.png)
+### Cart
+![Cart preview](./images/Cart.png)
+### TestCoverageReport
+![TestCoverageReport preview](./images/Test.png)
+## MY AI USAGE
+Tools Used
+- GitHub Copilot
+How I Used AI
+Debugging Assistance:
+Used Copilot to help identify and fix errors in the codebase
+Got suggestions for error handling patterns and best practices
+Test Development:
+Leveraged Copilot to generate unit tests for backend controllers
+Used it to create test cases for various scenarios including edge cases
+API Development:
+Received suggestions for RESTful endpoint structures
+Got help with implementing middleware for authentication and authorization
+Code Optimization:
+Used Copilot to suggest more efficient algorithms and patterns
+Got recommendations for code organization and structure
+Impact on Workflow
+Productivity: Significantly reduced time spent on boilerplate code
+Learning: Helped understand new patterns and best practices
+Quality: Improved code quality through consistent patterns and error handling
+Problem-Solving: Provided alternative approaches to complex problems
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
